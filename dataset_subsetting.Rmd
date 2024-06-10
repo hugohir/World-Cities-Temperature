@@ -1,0 +1,200 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+
+This is an [R Markdown](http://rmarkdown.rstudio.com) Notebook. When you execute code within the notebook, the results appear beneath the code. 
+
+Try executing this chunk by clicking the *Run* button within the chunk or by placing your cursor inside it and pressing *Ctrl+Shift+Enter*. 
+
+```{r}
+install.packages(readr)
+```
+
+```{r}
+library(readr)
+```
+
+```{r}
+temperature <- read_csv("city_temperature.csv")
+temperature
+```
+```{r}
+
+#Region: Africa
+Africa<-subset(temperature,Region=='Africa')
+#Year before 2000
+Africa_1995_1999<-subset(Africa,Year<2000)
+#Year from 2000 to 2004
+Africa_2000_2004<-subset(Africa,Year>=2000 & Year<=2004)
+#Year from 2005 to 2009
+Africa_2005_2009<-subset(Africa,Year>=2005 & Year<=2009)
+#Year from 2010 to 2014
+Africa_2010_2014<-subset(Africa,Year>=2010 & Year<=2014)
+#Year after 2014
+Africa_2015_2021<-subset(Africa,Year>=2015)
+
+#Region: Asia
+Asia<-subset(temperature,Region=='Asia')
+#Year before 2000
+Asia_1995_1999<-subset(Asia,Year<2000)
+#Year from 2000 to 2004
+Asia_2000_2004<-subset(Asia,Year>=2000 & Year<=2004)
+#Year from 2005 to 2009
+Asia_2005_2009<-subset(Asia,Year>=2005 & Year<=2009)
+#Year from 2010 to 2014
+Asia_2010_2014<-subset(Asia,Year>=2010 & Year<=2014)
+#Year after 2014
+Asia_2015_2021<-subset(Asia,Year>=2015)
+
+#Region: Australia/South Pacific
+Australia_South_Pacific<-subset(temperature,Region=='Australia/South Pacific')
+#Year before 2000
+Australia_South_Pacific_1995_1999<-subset(Australia_South_Pacific,Year<2000)
+#Year from 2000 to 2004
+Australia_South_Pacific_2000_2004<-subset(Australia_South_Pacific,Year>=2000 & Year<=2004)
+#Year from 2005 to 2009
+Australia_South_Pacific_2005_2009<-subset(Australia_South_Pacific,Year>=2005 & Year<=2009)
+#Year from 2010 to 2014
+Australia_South_Pacific_2010_2014<-subset(Australia_South_Pacific,Year>=2010 & Year<=2014)
+#Year after 2014
+Australia_South_Pacific_2015_2021<-subset(Australia_South_Pacific,Year>=2015)
+
+#Region: Europe
+Europe<-subset(temperature,Region=='Europe')
+#Year before 2000
+Europe_1995_1999<-subset(Europe,Year<2000)
+#Year from 2000 to 2004
+Europe_2000_2004<-subset(Europe,Year>=2000 & Year<=2004)
+#Year from 2005 to 2009
+Europe_2005_2009<-subset(Europe,Year>=2005 & Year<=2009)
+#Year from 2010 to 2014
+Europe_2010_2014<-subset(Europe,Year>=2010 & Year<=2014)
+#Year after 2014
+Europe_2015_2021<-subset(Europe,Year>=2015)
+
+#Region: Middle East
+Middle_East<-subset(temperature,Region=='Middle East')
+#Year before 2000
+Middle_East_1995_1999<-subset(Middle_East,Year<2000)
+#Year from 2000 to 2004
+Middle_East_2000_2004<-subset(Middle_East,Year>=2000 & Year<=2004)
+#Year from 2005 to 2009
+Middle_East_2005_2009<-subset(Middle_East,Year>=2005 & Year<=2009)
+#Year from 2010 to 2014
+Middle_East_2010_2014<-subset(Middle_East,Year>=2010 & Year<=2014)
+#Year after 2014
+Middle_East_2015_2021<-subset(Middle_East,Year>=2015)
+
+#Region: NorthAmerica
+North_America<-subset(temperature,Region=='North America')
+#Year before 1998
+North_America_1995_1997<-subset(North_America,Year<=1997)
+#Year from 1998 to 2000
+North_America_1998_2000<-subset(North_America,Year>=1998 & Year<=2000)
+#Year from 2001 to 2003
+North_America_2001_2003<-subset(North_America,Year>=2001 & Year<=2003)
+#Year from 2004 to 2006
+North_America_2004_2006<-subset(North_America,Year>=2004 & Year<=2006)
+#Year from 2007 to 2009
+North_America_2007_2009<-subset(North_America,Year>=2007 & Year<=2009)
+#Year from 2010 to 2012
+North_America_2010_2012<-subset(North_America,Year>=2010 & Year<=2012)
+#Year from 2013 to 2015
+North_America_2013_2015<-subset(North_America,Year>=2013 & Year<=2015)
+#Year from 2016 to 2018
+North_America_2016_2018<-subset(North_America,Year>=2016 & Year<=2018)
+#Year after 2018
+North_America_2019_2021<-subset(North_America,Year>=2019)
+
+#Region: South/Central America & Caribbean
+South_Central_America_Caribbean<-subset(temperature,Region=='South/Central America & Carribean')
+#Year before 2000
+South_Central_America_Caribbean_1995_1999<-subset(South_Central_America_Caribbean,Year<2000)
+#Year from 2000 to 2004
+South_Central_America_Caribbean_2000_2004<-subset(South_Central_America_Caribbean,Year>=2000 & Year<=2004)
+#Year from 2005 to 2009
+South_Central_America_Caribbean_2005_2009<-subset(South_Central_America_Caribbean,Year>=2005 & Year<=2009)
+#Year from 2010 to 2014
+South_Central_America_Caribbean_2010_2014<-subset(South_Central_America_Caribbean,Year>=2010 & Year<=2014)
+#Year after 2014
+South_Central_America_Caribbean_2015_2021<-subset(South_Central_America_Caribbean,Year>=2015)
+
+#
+```
+```{r}
+
+#write to csv files
+
+#Africa
+write_csv(Africa_1995_1999,'Africa_1995_1999.csv')
+write_csv(Africa_2000_2004,'Africa_2000_2004.csv')
+write_csv(Africa_2005_2009,'Africa_2005_2009.csv')
+write_csv(Africa_2010_2014,'Africa_2010_2014.csv')
+write_csv(Africa_2015_2021,'Africa_2015_2021.csv')
+
+#Asia
+write_csv(Asia_1995_1999,'Asia_1995_1999.csv')
+write_csv(Asia_2000_2004,'Asia_2000_2004.csv')
+write_csv(Asia_2005_2009,'Asia_2005_2009.csv')
+write_csv(Asia_2010_2014,'Asia_2010_2014.csv')
+write_csv(Asia_2015_2021,'Asia_2015_2021.csv')
+
+#Australia/South Pacific
+write_csv(Australia_South_Pacific_1995_1999,'Australia_South_Pacific_1995_1999.csv')
+write_csv(Australia_South_Pacific_2000_2004,'Australia_South_Pacific_2000_2004.csv')
+write_csv(Australia_South_Pacific_2005_2009,'Australia_South_Pacific_2005_2009.csv')
+write_csv(Australia_South_Pacific_2010_2014,'Australia_South_Pacific_2010_2014.csv')
+write_csv(Australia_South_Pacific_2015_2021,'Australia_South_Pacific_2015_2021.csv')
+
+#Europe
+write_csv(Europe_1995_1999,'Europe_1995_1999.csv')
+write_csv(Europe_2000_2004,'Europe_2000_2004.csv')
+write_csv(Europe_2005_2009,'Europe_2005_2009.csv')
+write_csv(Europe_2010_2014,'Europe_2010_2014.csv')
+write_csv(Europe_2015_2021,'Europe_2015_2021.csv')
+
+#Middle East
+write_csv(Middle_East_1995_1999,'Middle_East_1995_1999.csv')
+write_csv(Middle_East_2000_2004,'Middle_East_2000_2004.csv')
+write_csv(Middle_East_2005_2009,'Middle_East_2005_2009.csv')
+write_csv(Middle_East_2010_2014,'Middle_East_2010_2014.csv')
+write_csv(Middle_East_2015_2021,'Middle_East_2015_2021.csv')
+
+#North America
+write_csv(North_America_1995_1997,'North_America_1995_1997.csv')
+write_csv(North_America_1998_2000,'North_America_1998_2000.csv')
+write_csv(North_America_2001_2003,'North_America_2001_2003.csv')
+write_csv(North_America_2004_2006,'North_America_2004_2006.csv')
+write_csv(North_America_2007_2009,'North_America_2007_2009.csv')
+write_csv(North_America_2010_2012,'North_America_2010_2012.csv')
+write_csv(North_America_2013_2015,'North_America_2013_2015.csv')
+write_csv(North_America_2016_2018,'North_America_2016_2018.csv')
+write_csv(North_America_2019_2021,'North_America_2019_2021.csv')
+
+#South/Central America & Caribbean
+write_csv(South_Central_America_Caribbean_1995_1999,'South_Central_America_Caribbean_1995_1999.csv')
+write_csv(South_Central_America_Caribbean_2000_2004,'South_Central_America_Caribbean_2000_2004.csv')
+write_csv(South_Central_America_Caribbean_2005_2009,'South_Central_America_Caribbean_2005_2009.csv')
+write_csv(South_Central_America_Caribbean_2010_2014,'South_Central_America_Caribbean_2010_2014.csv')
+write_csv(South_Central_America_Caribbean_2015_2021,'South_Central_America_Caribbean_2015_2021.csv')
+
+```
+```
+
+```
+```{r}
+#get file names from the folder and save them into a csv
+sink("cityTemperatureSubsets.csv")
+list.files(path=".",pattern=NULL, all.files=FALSE,
+           full.names=FALSE, recursive=FALSE);
+sink()
+```
+```
+
+
+Add a new chunk by clicking the *Insert Chunk* button on the toolbar or by pressing *Ctrl+Alt+I*.
+
+When you save the notebook, an HTML file containing the code and output will be saved alongside it (click the *Preview* button or press *Ctrl+Shift+K* to preview the HTML file).
+
+The preview shows you a rendered HTML copy of the contents of the editor. Consequently, unlike *Knit*, *Preview* does not run any R code chunks. Instead, the output of the chunk when it was last run in the editor is displayed.
